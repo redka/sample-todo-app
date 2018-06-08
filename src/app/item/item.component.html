@@ -1,0 +1,38 @@
+<div class="header-block">
+  <h5>Item Lists</h5>
+  <a class="btn btn-primary" routerLink="create" role="button">Add item</a>
+</div>
+
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Item</th>
+    <th scope="col">Created</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of (itemState | async).items">
+    <td>{{item.id}}</td>
+    <td>{{item.title}}</td>
+    <td>{{item.date}}</td>
+    <td>
+      <a role="button" href="#" [routerLink]="['edit', item.id]" class="btn btn-primary btn-sm">
+        Edit
+      </a>
+    </td>
+    <td>
+      <button
+        (click)="onDelete(item)"
+        type="button"
+        class="btn btn-danger btn-sm">
+        Delete
+      </button>
+    </td>
+  </tr>
+
+  </tbody>
+</table>

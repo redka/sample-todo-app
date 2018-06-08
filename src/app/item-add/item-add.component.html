@@ -1,0 +1,17 @@
+<form (submit)="onAdd()" >
+  <div class="form-group">
+    <h5>Create item</h5>
+
+    <input
+      type="text"
+      required
+      [ngModelOptions]="{standalone: true}"
+      class="form-control"
+      id="item-text"
+      [(ngModel)]="itemText"
+      placeholder="Item text"
+    >
+  </div>
+
+  <button type="submit" class="btn btn-outline-primary">Add Item</button>
+</form>
