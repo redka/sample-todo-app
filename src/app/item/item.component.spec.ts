@@ -1,17 +1,11 @@
-import {TestBed, async, ComponentFixture} from '@angular/core/testing';
+import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ItemComponent } from './item.component';
 import { ItemsService } from '../items.service';
-import { Store, StoreModule } from '@ngrx/store';
-import { ITEM_ACTION } from '../redux/items.action';
-import { AppState } from '../redux/app.state';
+import { StoreModule } from '@ngrx/store';
 import { itemsReducer } from '../redux/items.reducer';
 
 describe('ItemComponent', () => {
-  let component: ItemComponent;
-  let fixture: ComponentFixture<ItemComponent>;
-  let store: Store<AppState>;
-  let itemsService: ItemsService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -24,24 +18,9 @@ describe('ItemComponent', () => {
     }).compileComponents();
   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ItemComponent);
-    component = fixture.componentInstance;
-    store = fixture.debugElement.injector.get(Store);
-    itemsService = fixture.debugElement.injector.get(ItemsService);
-    store.dispatch({
-      type: ITEM_ACTION.LOAD_ITEMS,
-    });
-  });
-
-  it('should be created', async(() => {
-    expect(component).toBeTruthy();
+  it('should be created Item component', async(() => {
+    const fixture = TestBed.createComponent(ItemComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
   }));
-  // it('store to be defined', async(() => {
-  //   expect(store).toBeDefined();
-  // }));
-  // it('data is there in component', async(() => {
-  //   expect(component.data).toBeDefined();
-  // }));
-
 });
