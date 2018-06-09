@@ -1,3 +1,6 @@
 .container {
   padding-top: 50px;
 }
+.collapse:not(.show) {
+  display: block !important;
+}
