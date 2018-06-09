@@ -4,6 +4,7 @@ import { ItemsService } from '../items.service';
 import { Observable } from 'rxjs/index';
 import { AppState } from '../redux/app.state';
 import { Store } from '@ngrx/store';
+import { LoadItems } from '../redux/items.action';
 
 @Component({
   selector: 'app-item',
@@ -11,7 +12,8 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnInit {
-  public itemState: Observable<Items>;
+  // public itemState: Observable<Items>;
+  itemState: Observable<Items>;
 
   constructor(
     private service: ItemsService,

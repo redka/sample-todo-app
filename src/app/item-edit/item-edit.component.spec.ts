@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { EditComponent } from './item-edit.component';
 import { ItemsService } from '../items.service';
@@ -7,6 +7,8 @@ import { itemsReducer } from '../redux/items.reducer';
 import { FormsModule } from '@angular/forms';
 
 describe('EditComponent', () => {
+  let component: EditComponent;
+  let fixture: ComponentFixture<EditComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -20,9 +22,12 @@ describe('EditComponent', () => {
     }).compileComponents();
   }));
 
+  beforeEach(() => {
+    fixture = TestBed.createComponent(EditComponent);
+    component = fixture.componentInstance;
+  });
+
   it('should be created Item edit component', async(() => {
-    const fixture = TestBed.createComponent(EditComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   }));
 });

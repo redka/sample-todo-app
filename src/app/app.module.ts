@@ -10,11 +10,13 @@ import { itemsReducer } from './redux/items.reducer';
 import { ItemAddComponent } from './item-add/item-add.component';
 import { ItemsService } from './items.service';
 import { EditComponent } from './item-edit/item-edit.component';
+import { AboutComponent } from './about/about.component';
 
 const appRoutes: Routes = [
   { path: '', component: ItemComponent},
   { path: 'create', component: ItemAddComponent},
   { path: 'edit/:id', component: EditComponent },
+  { path: 'about', component: AboutComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 
@@ -23,7 +25,8 @@ const appRoutes: Routes = [
     AppComponent,
     ItemComponent,
     ItemAddComponent,
-    EditComponent
+    EditComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
